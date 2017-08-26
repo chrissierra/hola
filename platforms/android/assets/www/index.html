@@ -300,26 +300,34 @@
 
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
-  navigator.vibrate(6000);
+  //navigator.vibrate(6000);
     console.log(navigator.vibrate);
 
 
-// capture callback
-var captureSuccess = function(mediaFiles) {
-    var i, path, len;
-    for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-        path = mediaFiles[i].fullPath;
-        // do something interesting with the file
-    }
-};
 
-// capture error callback
-var captureError = function(error) {
-    navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
-};
 
-// start audio capture
-navigator.device.capture.captureAudio(captureSuccess, captureError, {limit:2});
+
+
+
+
+function recordAudio() {
+    var src = "myrecording.mp3";
+    var mediaRec = new Media(src,
+        // success callback
+        function() {
+            console.log("recordAudio():Audio Success");
+            mediaRec.play();
+        },
+
+        // error callback
+        function(err) {
+            console.log("recordAudio():Audio Error: "+ err.code);
+        });
+
+    // Record audio
+    mediaRec.startRecord();
+}
+
 
 
 
