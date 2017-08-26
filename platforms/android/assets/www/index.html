@@ -306,10 +306,7 @@ function onDeviceReady() {
  console.log(Media);
 
 
-setTimeout(recordAudio, 3000);
 
-
-function recordAudio() {
     var src = "myrecording.mp3";
     var mediaRec = new Media(src,
         // success callback
@@ -321,12 +318,13 @@ function recordAudio() {
 
         // error callback
         function(err) {
+          alert(err.code);
             console.log("recordAudio():Audio Error: "+ err.code);
         });
 
     // Record audio
     mediaRec.startRecord();
-}
+
 
 
 
