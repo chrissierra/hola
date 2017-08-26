@@ -303,11 +303,10 @@ function onDeviceReady() {
   //navigator.vibrate(6000);
     console.log(navigator.vibrate);
 
+ console.log(Media);
 
 
-
-
-
+setTimeout(recordAudio, 3000);
 
 
 function recordAudio() {
@@ -315,6 +314,7 @@ function recordAudio() {
     var mediaRec = new Media(src,
         // success callback
         function() {
+          alert("exito")
             console.log("recordAudio():Audio Success");
             mediaRec.play();
         },
