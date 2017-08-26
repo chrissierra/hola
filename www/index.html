@@ -389,6 +389,7 @@ function file_transfer(archivo){
         console.log("Code = " + r.responseCode);
         console.log("Response = " + r.response);
         console.log("Sent = " + r.bytesSent);
+        console.log("https://nubilous-dingo-5717.dataplicity.io/audio_reproducir.php");
     }
 
     var fail = function (error) {
@@ -403,7 +404,7 @@ function file_transfer(archivo){
     options.mimeType = "audio/wav";
 
     var ft = new FileTransfer();
-    ft.upload(fileURL, encodeURI("http://192.168.56.1/Proyectos/testeandoaudios/audio_reproducir.php"), win, fail, options, true);
+    ft.upload(fileURL, encodeURI("https://nubilous-dingo-5717.dataplicity.io/audio_reproducir.php"), win, fail, options, true);
 
   }
 
