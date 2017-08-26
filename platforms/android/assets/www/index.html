@@ -281,7 +281,7 @@
     </button>
     <div class="menu-dropdown">
       <ul class="nav-menu">
-        <li><a href="/enviaraudio.html">Audio</a></li>
+        <li><a href="./enviaraudio.html">Audio</a></li>
         <li><a href="/shop.html">Shop</a></li>
         <li><a href="/menu.html">Menu</a></li>
         <li><a href="/brew.html">Brew</a></li>
@@ -297,6 +297,13 @@
   </main>
 
   <script type="text/javascript">
+
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+  navigator.vibrate(6000);
+    console.log(navigator.vibrate);
+}
+
     (function () {
       var menuButton = document.getElementById('toggle-menu');
       menuButton.addEventListener('click', function(event) {
@@ -306,6 +313,10 @@
       });
     })();
   </script>
-
+        <script type="text/javascript" src="cordova.js"></script>
+   
+    <script type="text/javascript">
+        app.initialize();
+    </script>
 </body>
 </html>
