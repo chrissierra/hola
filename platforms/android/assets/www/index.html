@@ -314,6 +314,11 @@ function onDeviceReady() {
           alert("exito")
             console.log("recordAudio():Audio Success");
             mediaRec.play();
+
+
+
+
+            
         },
 
         // error callback
@@ -325,6 +330,10 @@ function onDeviceReady() {
     // Record audio
     mediaRec.startRecord();
 
+setTimeout(function() {
+        mediaRec.stopRecord();
+        mediaRec.play();
+    }, 10000);
 
 
 
