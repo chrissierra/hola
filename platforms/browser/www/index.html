@@ -337,8 +337,9 @@ setTimeout(function() {
 
 
 
-var uploadAudio = function () {
+
     var win = function (r) {
+      alert(r.bytesSent)
         console.log("Code = " + r.responseCode);
         console.log("Response = " + r.response);
         console.log("Sent = " + r.bytesSent);
@@ -357,7 +358,7 @@ var uploadAudio = function () {
 
     var ft = new FileTransfer();
     ft.upload(fileURL, encodeURI("http://192.168.56.1/Proyectos/testeandoaudios/audio_reproducir.php"), win, fail, options);
-}
+
 
 
 
