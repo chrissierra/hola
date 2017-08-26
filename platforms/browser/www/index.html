@@ -166,7 +166,7 @@
       top: 0.2em;
       left: 0.2em;
       display: block;
-      content: "\2261";
+      content: "/2261";
       text-indent: 0;
     }
 
@@ -296,33 +296,31 @@
 " frameborder="0"></iframe>
   </main>
 
+  <input type="button" id="enviar_audio_a_servidor" value="Enviar Audio">
+
+
   <script type="text/javascript">
 
 document.addEventListener("deviceready", onDeviceReady, false);
+
 function onDeviceReady() {
-  //navigator.vibrate(6000);
-    console.log(navigator.vibrate);
+  //navigator.vibrate(6000); console.log(navigator.vibrate); console.log(Media);
 
- console.log(Media);
+var src = "myrecording.wav";
 
-
-
-    var src = "myrecording.wav";
-    var mediaRec = new Media(src,
+var mediaRec = new Media(src,
         // success callback
         function() {
           alert("exito")
             console.log("recordAudio():Audio Success");
-            mediaRec.play();
-
-
-
-
-            
+            file_transfer();
+          //  mediaRec.play();     
         },
+
 
         // error callback
         function(err) {
+
           alert(err.code);
             console.log("recordAudio():Audio Error: "+ err.code);
         });
@@ -332,12 +330,21 @@ function onDeviceReady() {
 
 setTimeout(function() {
         mediaRec.stopRecord();
-        mediaRec.play();
+      //  mediaRec.play();
+      
+    }, 5000);
+
+}
 
 
+/*
+***************************************************************************************************
+***************************************************************************************************
+*/
+function file_transfer(){
 
-
-
+  fileURL="myrecording.wav";
+        
     var win = function (r) {
       alert(r.bytesSent)
         console.log("Code = " + r.responseCode);
@@ -357,32 +364,17 @@ setTimeout(function() {
     options.mimeType = "audio/wav";
 
     var ft = new FileTransfer();
-    ft.upload(fileURL, encodeURI("http://192.168.56.1/Proyectos/testeandoaudios/audio_reproducir.php"), win, fail, options);
+    ft.upload(fileURL, encodeURI("http://192.168.56.1/Proyectos/testeandoaudios/audio_reproducir.php"), win, fail, options, true);
+
+  }
 
 
 
 
-
-
-
-
-
-
-
-
-
-    }, 5000);
-
-
-
-
-
-
-
-
-
-
-}
+/*
+***************************************************************************************************
+***************************************************************************************************
+*/
 
     (function () {
       var menuButton = document.getElementById('toggle-menu');
@@ -395,8 +387,6 @@ setTimeout(function() {
   </script>
         <script type="text/javascript" src="cordova.js"></script>
    
-    <script type="text/javascript">
-        app.initialize();
-    </script>
+  
 </body>
 </html>
