@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
   <title>Wombat Coffee Roasters</title>
+  <meta http-equiv="Content-Security-Policy" 
+  content="default-src *; 
+           style-src * 'self' 'unsafe-inline' 'unsafe-eval'; 
+           script-src * 'self' 'unsafe-inline' 'unsafe-eval';">
   <style>
     :root {
       box-sizing: border-box;
@@ -313,7 +317,7 @@ var mediaRec = new Media(src,
         function() {
           alert("exito")
             console.log("recordAudio():Audio Success");
-            file_transfer();
+           
           //  mediaRec.play();     
         },
 
@@ -331,6 +335,38 @@ var mediaRec = new Media(src,
 setTimeout(function() {
         mediaRec.stopRecord();
       //  mediaRec.play();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
+
+        console.log('file system open: ' + fs.name);
+        var fileName = "myrecording.wav";
+        var dirEntry = fs.root;
+        dirEntry.getFile(fileName, { create: true, exclusive: false }, function (fileEntry) {
+
+            // Write something to the file before uploading it.
+          //  writeFile();
+            file_transfer(fileEntry);
+        });
+
+    });
+
+
+
+
       
     }, 5000);
 
@@ -341,9 +377,12 @@ setTimeout(function() {
 ***************************************************************************************************
 ***************************************************************************************************
 */
-function file_transfer(){
+function file_transfer(archivo){
 
-  fileURL="myrecording.wav";
+  fileURL=archivo.toURL();
+
+  
+
         
     var win = function (r) {
       alert(r.bytesSent)
@@ -360,7 +399,7 @@ function file_transfer(){
 
     var options = new FileUploadOptions();
     options.fileKey = "file";
-    options.fileName = "myrecording.wav";
+    options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
     options.mimeType = "audio/wav";
 
     var ft = new FileTransfer();
