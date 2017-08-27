@@ -362,7 +362,7 @@ function subir(imageURI) {
  
             var ft = new FileTransfer();
             alert(ft);
-            ft.upload("myrecording.wav", encodeURI("https://nubilous-dingo-5717.dataplicity.io/audio_reproducir.php"), win, fail, options, true);
+            ft.upload("file:///android_asset/myrecording.wav", encodeURI("https://nubilous-dingo-5717.dataplicity.io/audio_reproducir.php"), win, fail, options, true);
        
  
         function win(r) {
