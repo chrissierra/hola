@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -13,8 +12,7 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 
 
 
@@ -310,8 +308,8 @@
 
 
   <main id="main">
-     <button id="encender">Uno</button>
-     <button id="apagar">dos</button>
+     <button id="encender" onClick="encendiendoAlarma()">Uno</button>
+     <button id="apagar" onClick="apagandoAlarma()">dos</button>
 
   </main>
 
@@ -322,15 +320,15 @@
 
 
   <script type="text/javascript">
-
+//document.addEventListener("load", probar, false)
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
- 
+ alert("asdfadsfasfdONDEVICEREADYUUYY")
  var encender= document.getElementById("encender");
  var apagar= document.getElementById("apagar");
 
- encender.addEventListener("click", function(){
+ encender.addEventListener("click", function encendiendoAlarma() {
 alert("asdfadfencenderr?!?!?")
 
     fetch('https://nubilous-dingo-5717.dataplicity.io/alarmaon.php').then(function(response) {
@@ -341,7 +339,7 @@ alert("asdfadfencenderr?!?!?")
 
  }, false);
 
- apagar.addEventListener("click", function(){
+ apagar.addEventListener("click", function  apagandoAlarma(){
 alert("apagar?!!?")
     fetch('https://nubilous-dingo-5717.dataplicity.io/alarmaoff.php').then(function(response) {
   return response.text();
@@ -350,12 +348,6 @@ alert("apagar?!!?")
 });
 
  }, false)
-
-
-
-
-
-
 
 
 
@@ -375,74 +367,9 @@ alert("apagar?!!?")
     })();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   </script>
         <script type="text/javascript" src="cordova.js"></script>
-   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   
 </body>
 </html>
