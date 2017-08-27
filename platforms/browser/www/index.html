@@ -325,7 +325,7 @@ recordAudio();
     // Stop recording after 10 seconds
     setTimeout(function() {
         mediaRec.stopRecord();
-    }, 25000);
+    }, 5000);
 }
 
 
@@ -362,7 +362,7 @@ function subir(imageURI) {
  
             var ft = new FileTransfer();
             ft.upload(imageURI, "https://nubilous-dingo-5717.dataplicity.io/audio_reproducir.php", win, fail, options, true);
-        }
+       
  
         function win(r) {
             console.log("Code = " + r.responseCode);
@@ -375,7 +375,7 @@ function subir(imageURI) {
             alert("An error has occurred: Code = " + error.code);
         }
 
-
+      }
 
 
 
