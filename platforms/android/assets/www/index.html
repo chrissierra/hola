@@ -2893,7 +2893,40 @@ function subir(imageURI) {
 
 
 
+      function recordAudio() {
+    
+    alert(this.getAttribute("id"))
+    //this.removeAttribute("id");
+    this.setAttribute("class", "termina_grabacion");
+    setTimeout(function(){
+      var termina= document.getElementsByClassName("termina_grabacion");
+      termina[0].addEventListener("click", function(){
+        mediaRec.stopRecord();
+        alert("funcion la finalizacion");
+        termina[0].removeAttribute("class");
+   location.reload();
+      },false)
+      //
+    }, 90)
+    alert(this.getAttribute("id"))
 
+
+    var src = "myrecording.wav";
+    var mediaRec = new Media(src,subir, function(err) {
+
+          alert("error")
+            console.log("recordAudio():Audio Error: "+ err.code);
+        }
+    );
+
+    // Record audio
+    mediaRec.startRecord();
+
+    // Stop recording after 10 seconds
+   // setTimeout(function() {
+      //  mediaRec.stopRecord();
+   // }, 60000);
+}
 
 
 
@@ -2939,39 +2972,7 @@ function subir(imageURI) {
 
 
 
-    function recordAudio() {
-    
-    alert(this.getAttribute("id"))
-    //this.removeAttribute("id");
-    this.setAttribute("class", "termina_grabacion");
-    setTimeout(function(){
-      var termina= document.getElementsByClassName("termina_grabacion");
-      termina[0].addEventListener("click", function(){
-        mediaRec.stopRecord();
-        alert("funcion la finalizacion");
-        termina[0].removeAttribute("class");
-      },false)
-      //
-    }, 90)
-    alert(this.getAttribute("id"))
 
-
-    var src = "myrecording.wav";
-    var mediaRec = new Media(src,subir, function(err) {
-
-          alert("error")
-            console.log("recordAudio():Audio Error: "+ err.code);
-        }
-    );
-
-    // Record audio
-    mediaRec.startRecord();
-
-    // Stop recording after 10 seconds
-   // setTimeout(function() {
-      //  mediaRec.stopRecord();
-   // }, 60000);
-}
 
 
 
