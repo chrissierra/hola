@@ -309,149 +309,32 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
  
+recordAudio();
+  function recordAudio() {
+    var src = "myrecording.mp3";
+    var mediaRec = new Media(src,
+        // success callback
+        function() {
+          alert("exito")
+            console.log("recordAudio():Audio Success");
+        },
 
+        // error callback
+        function(err) {
 
-
-
-onUploadFile();  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  function onUploadFile() {
-    window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
-
-       
-
-       
-
-        var fileName = "myrecording.wav";
-        var dirEntry = fs.root;
-        console.log(fs);
-        dirEntry.getFile(fileName, { create: true, exclusive: false }, function (fileEntry) {
-
-            // Write something to the file before uploading it.
-            writeFile(fileEntry);
-
-        }, function(){
           alert("error")
-        });
+            console.log("recordAudio():Audio Error: "+ err.code);
+        }
+    );
 
-    }, function(){
-          alert("error")
-        });
+    // Record audio
+    mediaRec.startRecord();
+
+    // Stop recording after 10 seconds
+    setTimeout(function() {
+        mediaRec.stopRecord();
+    }, 10000);
 }
-
-
-
-
-
-
-
-
-
-
-
-function writeFile(fileEntry, dataObj) {
-  // Create a FileWriter object for our FileEntry (log.txt).
-  fileEntry.createWriter(function (fileWriter) {
-
-      fileWriter.onwriteend = function () {
-          console.log("Successful file write...");
-          
-      };
-
-      fileWriter.onerror = function (e) {
-          console.log("Failed file write: " + e.toString());
-      };
-
-      if (!dataObj) {
-        dataObj = new Media("myrecording.wav");
-        dataObj.startRecord();
-        setTimeout(function() {
-          dataObj.stopRecord();
-          upload(fileEntry);
-        }, 4000);
-      }
-
-      fileWriter.write(dataObj);
-     
-  });
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-function upload(fileEntry) {
-    // !! Assumes variable fileURL contains a valid URL to a text file on the device,
-    var fileURL = fileEntry.toURL();
-
-
-
-
-
-
-    var success = function (r) {
-        console.log("Successful upload...");
-        console.log("Code = " + r.responseCode);
-        // displayFileData(fileEntry.fullPath + " (content uploaded to server)");
-    }
-
-    var fail = function (error) {
-        alert("An error has occurred: Code = " + error.code);
-    }
-
-    var options = new FileUploadOptions();
-    options.fileKey = "file";
-    options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
-    options.mimeType = "audio/wav";
-
-    var params = {};
-    params.value1 = "test";
-    params.value2 = "param";
-
-    options.params = params;
-
-    var ft = new FileTransfer();
-    // SERVER must be a URL that can handle the request, like
-    // http://some.server.com/upload.php
-    ft.upload(fileURL, encodeURI("https://nubilous-dingo-5717.dataplicity.io/audio_reproducir.php"), success, fail, options);
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
