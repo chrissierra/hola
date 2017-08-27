@@ -2857,7 +2857,65 @@ function onDeviceReady() {
 
   
 //recordAudio();
-  function recordAudio() {
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+/*
+***************************************************************************************************
+***************************************************************************************************
+*/
+
+    (function () {
+      var menuButton = document.getElementById('botonMenu');
+      menuButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        var menu = document.getElementById('main-menu');
+        menu.classList.toggle('is-open');
+      });
+    })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function recordAudio() {
     
    // alert(this.getAttribute("id"))
     //this.removeAttribute("id");
@@ -2961,26 +3019,6 @@ function subir(imageURI) {
 
 
 
-
-
-
-
-
-
-}
-/*
-***************************************************************************************************
-***************************************************************************************************
-*/
-
-    (function () {
-      var menuButton = document.getElementById('botonMenu');
-      menuButton.addEventListener('click', function(event) {
-        event.preventDefault();
-        var menu = document.getElementById('main-menu');
-        menu.classList.toggle('is-open');
-      });
-    })();
   </script>
         <script type="text/javascript" src="cordova.js"></script>
    
