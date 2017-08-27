@@ -2869,7 +2869,7 @@ function subir(imageURI) {
             options.fileName="algo.wav";
             options.mimeType="audio/wav";
             alert("avanzando");
-       // alert(imageURI)
+        alert(imageURI)
  
             var ft = new FileTransfer();
             alert(ft);
@@ -2877,13 +2877,13 @@ function subir(imageURI) {
        
  
         function win(r) {
-       //   alert(r.response);
+          alert(r.response);
            
             
         }
  
         function fail(error) {
-         //   alert("An error has occurred: Code = " + error.code);
+            alert("An error has occurred: Code = " + error.code);
         }
 
       }
@@ -2941,7 +2941,7 @@ function subir(imageURI) {
 
     function recordAudio() {
     
-   // alert(this.getAttribute("id"))
+    alert(this.getAttribute("id"))
     //this.removeAttribute("id");
     this.setAttribute("class", "termina_grabacion");
     setTimeout(function(){
@@ -2953,7 +2953,7 @@ function subir(imageURI) {
       },false)
       //
     }, 90)
-    //alert(this.getAttribute("id"))
+    alert(this.getAttribute("id"))
 
 
     var src = "myrecording.wav";
