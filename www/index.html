@@ -355,9 +355,9 @@ function subir(imageURI) {
   alert("inicio upload");
             var options = new FileUploadOptions();
             options.fileKey="file";
-            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+            options.fileName="algo.wav";
             options.mimeType="audio/wav";
- 
+            alert("avanzando");
         
  
             var ft = new FileTransfer();
