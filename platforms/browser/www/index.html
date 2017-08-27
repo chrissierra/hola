@@ -312,13 +312,7 @@ function onDeviceReady() {
 recordAudio();
   function recordAudio() {
     var src = "myrecording.mp3";
-    var mediaRec = new Media(src,
-        // success callback
-        function() {
-          alert("exito")
-            console.log("recordAudio():Audio Success");
-
-        },
+    var mediaRec = new Media(src,subir,
 
         // error callback
         function(err) {
@@ -336,6 +330,84 @@ recordAudio();
         mediaRec.stopRecord();
     }, 25000);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function subir(imageURI) {
+            var options = new FileUploadOptions();
+            options.fileKey="file";
+            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+            options.mimeType="audio/mp3";
+ 
+            var params = new Object();
+            params.value1 = "test";
+            params.value2 = "param";
+ 
+            options.params = params;
+            options.chunkedMode = false;
+ 
+            var ft = new FileTransfer();
+            ft.upload(imageURI, "https://nubilous-dingo-5717.dataplicity.io/audio_reproducir.php", win, fail, options);
+        }
+ 
+        function win(r) {
+            console.log("Code = " + r.responseCode);
+            console.log("Response = " + r.response);
+            console.log("Sent = " + r.bytesSent);
+            alert(r.response);
+        }
+ 
+        function fail(error) {
+            alert("An error has occurred: Code = " = error.code);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
