@@ -307,6 +307,7 @@
 
 document.addEventListener("deviceready", onDeviceReady, false);
 audioRecord = 'myrecording.wav';
+var fileURL;
 function onDeviceReady() {
  
   window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, gotFS, fail);
@@ -352,10 +353,10 @@ function fail(){
         
 
 
+uploadAudio();
 
 
-
-        var uploadAudio = function () {
+           function uploadAudio() {
     var win = function (r) {
       alert("https://nubilous-dingo-5717.dataplicity.io/audio_reproducir.php")
         console.log("Code = " + r.responseCode);
@@ -377,6 +378,7 @@ function fail(){
     var ft = new FileTransfer();
     ft.upload(fileURL, encodeURI("https://nubilous-dingo-5717.dataplicity.io/audio_reproducir.php"), win, fail, options, true);
 }
+
 
 }
 /*
