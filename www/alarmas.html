@@ -324,12 +324,12 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
- alert("asdfadsfasfdONDEVICEREADYUUYY")
+ //alert("asdfadsfasfdONDEVICEREADYUUYY")
  var encender= document.getElementById("encender");
  var apagar= document.getElementById("apagar");
 
  encender.addEventListener("click", function encendiendoAlarma() {
-alert("asdfadfencenderr?!?!?")
+//alert("asdfadfencenderr?!?!?")
 
     fetch('https://nubilous-dingo-5717.dataplicity.io/alarmaon.php').then(function(response) {
   return response.text();
@@ -340,7 +340,7 @@ alert("asdfadfencenderr?!?!?")
  }, false);
 
  apagar.addEventListener("click", function  apagandoAlarma(){
-alert("apagar?!!?")
+//alert("apagar?!!?")
     fetch('https://nubilous-dingo-5717.dataplicity.io/alarmaoff.php').then(function(response) {
   return response.text();
 }).then(function(myBlob) {

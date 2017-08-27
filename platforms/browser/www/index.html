@@ -2863,27 +2863,27 @@ function onDeviceReady() {
 
 
 function subir(imageURI) {
- alert("inicio upload");
+ ////alert("inicio upload");
             var options = new FileUploadOptions();
             options.fileKey="file";
             options.fileName="algo.wav";
             options.mimeType="audio/wav";
-            alert("avanzando");
-        alert(imageURI)
+            //alert("avanzando");
+        //alert(imageURI)
  
             var ft = new FileTransfer();
-            alert(ft);
+            //alert(ft);
             ft.upload("storage/emulated/0/myrecording.wav", encodeURI("https://nubilous-dingo-5717.dataplicity.io/audio_reproducir.php"), win, fail, options, true);
        
  
         function win(r) {
-          alert(r.response);
+          //alert(r.response);
            
             
         }
  
         function fail(error) {
-            alert("An error has occurred: Code = " + error.code);
+            //alert("An error has occurred: Code = " + error.code);
         }
 
       }
@@ -2895,26 +2895,26 @@ function subir(imageURI) {
 
       function recordAudio() {
     
-    alert(this.getAttribute("id"))
+    //alert(this.getAttribute("id"))
     //this.removeAttribute("id");
     this.setAttribute("class", "termina_grabacion");
     setTimeout(function(){
       var termina= document.getElementsByClassName("termina_grabacion");
       termina[0].addEventListener("click", function(){
         mediaRec.stopRecord();
-        alert("funcion la finalizacion");
+        //alert("funcion la finalizacion");
         termina[0].removeAttribute("class");
    location.reload();
       },false)
       //
     }, 90)
-    alert(this.getAttribute("id"))
+    //alert(this.getAttribute("id"))
 
 
     var src = "myrecording.wav";
     var mediaRec = new Media(src,subir, function(err) {
 
-          alert("error")
+          //alert("error")
             console.log("recordAudio():Audio Error: "+ err.code);
         }
     );
