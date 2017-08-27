@@ -311,11 +311,8 @@ function onDeviceReady() {
  
 recordAudio();
   function recordAudio() {
-    var src = "myrecording.mp3";
-    var mediaRec = new Media(src,subir,
-
-        // error callback
-        function(err) {
+    var src = "myrecording.wav";
+    var mediaRec = new Media(src,subir, function(err) {
 
           alert("error")
             console.log("recordAudio():Audio Error: "+ err.code);
@@ -355,20 +352,16 @@ recordAudio();
 
 
 function subir(imageURI) {
+  alert("inicio upload");
             var options = new FileUploadOptions();
             options.fileKey="file";
             options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
-            options.mimeType="audio/mp3";
+            options.mimeType="audio/wav";
  
-            var params = new Object();
-            params.value1 = "test";
-            params.value2 = "param";
- 
-            options.params = params;
-            options.chunkedMode = false;
+        
  
             var ft = new FileTransfer();
-            ft.upload(imageURI, "https://nubilous-dingo-5717.dataplicity.io/audio_reproducir.php", win, fail, options);
+            ft.upload(imageURI, "https://nubilous-dingo-5717.dataplicity.io/audio_reproducir.php", win, fail, options, true);
         }
  
         function win(r) {
