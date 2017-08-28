@@ -294,8 +294,8 @@
       <h3>Audio</h3>
  <!--<iframe src="https://nubilous-dingo-5717.dataplicity.io/audio/" frameborder="0"></iframe>-->
 
-      <audio controls>
-        <source src="https://nubilous-dingo-5717.dataplicity.io/audio/" type="audio/mpeg">
+      <audio controls id="audio">
+       <!-- <source src="https://nubilous-dingo-5717.dataplicity.io/audio/" type="audio/mpeg">-->
        <!-- <source src="horse.mp3" type="audio/mpeg">-->
       Your browser does not support the audio element.
       </audio>
@@ -319,9 +319,13 @@ fetch('https://nubilous-dingo-5717.dataplicity.io/finalizar_audio_streaming.php'
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
   fetch('https://nubilous-dingo-5717.dataplicity.io/vlc_streaming.php').then(function(response) {
+
   return response.text();
 }).then(function(myBlob) {
   console.log(miBlob)
+var main= document.getElementById("main");
+main.innerHTML=' <source src="https://nubilous-dingo-5717.dataplicity.io/audio/" type="audio/mpeg">';
+
 });
 
     console.log(navigator.vibrate);
