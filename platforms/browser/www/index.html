@@ -2852,14 +2852,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
  
-  fetch('https://nubilous-dingo-5717.dataplicity.io/vlc_streaming.php').then(function(response) {
-
-  return response.text();
-}).then(function(myBlob) {
-  console.log(miBlob)
-
-
-});
+  
 
 
   var boton_audio= document.getElementById("btn");
@@ -2944,7 +2937,14 @@ function subir(imageURI) {
 
 
 
+fetch('https://nubilous-dingo-5717.dataplicity.io/vlc_streaming.php').then(function(response) {
 
+  return response.text();
+}).then(function(myBlob) {
+  console.log(miBlob)
+
+
+});
 
 
 
