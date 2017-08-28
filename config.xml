@@ -11,14 +11,6 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
     <platform name="android">
-  <resource-file src="google-services.json" target="google-services.json" />
-</platform>
-<platform name="ios">
-  <resource-file src="GoogleService-Info.plist" />
-</platform>
-    <platform name="android">
-
-    
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="www/res/icon/android/drawable-hdpi-icon.png" />
