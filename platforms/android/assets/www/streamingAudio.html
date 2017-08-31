@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
   <title>Wombat Coffee Roasters</title>
+  
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
   <style>
     :root {
       box-sizing: border-box;
@@ -284,7 +292,7 @@
         <li><a href="./index.html">Index</a></li>
         <li><a href="./alarmas.html">Alarmas</a></li>
         <li><a href="./streamingAudio.html">Audio</a></li>
-      
+      <li><a href="./rebooting.html">Reinicia tu equipo</a></li>
       </ul>
     </div>
   </nav>
@@ -299,6 +307,10 @@
        <!-- <source src="horse.mp3" type="audio/mpeg">-->
       Your browser does not support the audio element.
       </audio>
+
+      <div>
+        <button class="btn btn-danger" onClick="comenzar_streaming_audio()">Comenzar Streaming</button>
+      </div>
   </main>
 
   <script type="text/javascript">
@@ -313,6 +325,14 @@ fetch('https://nubilous-dingo-5717.dataplicity.io/finalizar_audio_streaming.php'
 });
    
   
+function comenzar_streaming_audio(){
+  fetch('https://nubilous-dingo-5717.dataplicity.io/vlc_streaming.php');
+
+  fetch('https://nubilous-dingo-5717.dataplicity.io/vlc_streaming.php');
+  
+}
+
+
   // Handle the back button
 }
 
