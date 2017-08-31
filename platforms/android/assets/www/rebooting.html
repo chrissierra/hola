@@ -309,7 +309,7 @@
     
       <main id="main">
          
-        <button class="btn btn-success" onClick="reinicia_js()">Reinicia Equipo</button>
+        <button class="btn btn-success" onClick="reinicia_js()" id="boton_reinicia">Reinicia Equipo</button>
     
       </main>
     
@@ -321,17 +321,21 @@
     
       <script type="text/javascript">
     
-function reinicia_js(){
 
-   fetch("https://nubilous-dingo-5717.dataplicity.io/reboot.php",{mode: 'no-cors' }).then(function(response){
-    alert("Reiniciando Equipo..")
-    return response.text();
-   }).then(function(r){
+
+    
+//document.getElementById("boton_reinicia").addEventListener("click", function(){ alert("asdfasdfadf") }, false)
+
+function reinicia_js(){
+alert("asdf")
+  fetch("https://nubilous-dingo-5717.dataplicity.io/reboot.php",{mode: 'no-cors' });
+
+  
     setTimeout(function(){
 location.href="./index.html";
 
    }, 2000)
-   })
+  
   
 
 }
