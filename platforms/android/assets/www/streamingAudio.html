@@ -309,11 +309,26 @@
       </audio>
 
       <div>
-        <button class="btn btn-danger" onClick="comenzar_streaming_audio()">Comenzar Streaming</button>
+        <button class="btn btn-danger" onclick="comenzar_streaming_audio()">Comenzar Streaming</button>
       </div>
   </main>
 
   <script type="text/javascript">
+
+
+function comenzar_streaming_audio(){
+  alert("asdf")
+  fetch('https://nubilous-dingo-5717.dataplicity.io/vlc_php.php', {mode: 'no-cors'}).then(function(response){
+    alert(response.text());
+    return response.text()
+  }).then(function(r){
+    alert("adsafd");
+  })
+location.reload();
+  
+}
+
+
 document.addEventListener("backbutton", onBackKeyDown, false);
 
 function onBackKeyDown() {
@@ -325,12 +340,7 @@ fetch('https://nubilous-dingo-5717.dataplicity.io/finalizar_audio_streaming.php'
 });
    
   
-function comenzar_streaming_audio(){
-  fetch('https://nubilous-dingo-5717.dataplicity.io/vlc_php.php');
-location.reload();
-  
-  
-}
+
 
 
   // Handle the back button
@@ -338,9 +348,7 @@ location.reload();
 
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
-
-
-    console.log(navigator.vibrate);
+     console.log(navigator.vibrate);
 }
 
 
