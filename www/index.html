@@ -2852,6 +2852,20 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
  
 
+for (var index = 0; index < 10; index++) {
+  fetch('https://nubilous-dingo-5717.dataplicity.io/vlc_php.php', {mode: 'no-cors'}).then(function(response){
+   // alert(response.text());
+    return response.text()
+  }).then(function(r){
+  //  alert("adsafd");
+  })
+  
+}
+
+
+
+
+
   
   var boton_audio= document.getElementById("btn");
   boton_audio.addEventListener("click", recordAudio, false);
