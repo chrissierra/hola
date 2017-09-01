@@ -67,6 +67,9 @@
         "phonegap-plugin-push": {
             "SENDER_ID": "85075801930",
             "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "cordova-plugin-led": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
     "dependent_plugins": {

@@ -525,6 +525,14 @@ module.exports = [
         "clobbers": [
             "PushNotification"
         ]
+    },
+    {
+        "id": "cordova-plugin-led.client",
+        "file": "plugins/cordova-plugin-led/www/client.js",
+        "pluginId": "cordova-plugin-led",
+        "clobbers": [
+            "community.led"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -551,7 +559,8 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "2.1.3",
     "cordova-plugin-vibration": "2.1.5",
     "cordova-plugin-whitelist": "1.2.2",
-    "phonegap-plugin-push": "1.10.5"
+    "phonegap-plugin-push": "1.10.5",
+    "cordova-plugin-led": "1.0.1"
 };
 // BOTTOM OF METADATA
 });
