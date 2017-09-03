@@ -2851,8 +2851,12 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
  
-  var id = community.led.startLed("FF0000", 4); 
-  community.led.stopLed(id);
+ 
+
+
+
+
+  
 for (var index = 0; index < 10; index++) {
   fetch('https://nubilous-dingo-5717.dataplicity.io/vlc_php.php', {mode: 'no-cors'}).then(function(response){
    // alert(response.text());

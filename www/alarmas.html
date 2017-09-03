@@ -333,10 +333,14 @@ function onDeviceReady() {
  encender.addEventListener("click", function encendiendoAlarma() {
 //alert("asdfadfencenderr?!?!?")
 
+
+
+
     fetch('https://nubilous-dingo-5717.dataplicity.io/alarmaon.php').then(function(response) {
   return response.text();
 }).then(function(myBlob) {
-  console.log(miBlob)
+  console.log(miBlob);
+  navigator.notification.vibrate(2500);
 });
 
  }, false);
