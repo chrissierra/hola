@@ -303,6 +303,7 @@
         <li><a href="./index.html">Index</a></li>
         <li><a href="./alarmas.html">Alarmas</a></li>
         <li><a href="./streamingAudio.html">Audio</a></li>
+        <li><a href="./dirigida.html">Cámara dirigida</a></li>
       <li><a href="./rebooting.html">Reinicia tu equipo</a></li>
       </ul>
     </div>
@@ -311,8 +312,14 @@
 
   <main id="main">
       <h3>Living</h3>
-  <iframe src="https://nubilous-dingo-5717.dataplicity.io/cams/picture/1/frame/
-" frameborder="0"></iframe>
+  <iframe src="https://gossamer-raccoon-1582.dataplicity.io/cams/picture/1/frame/" frameborder="0"></iframe>
+
+  <iframe src="https://gossamer-raccoon-1582.dataplicity.io/cams/picture/2/frame/" frameborder="0"></iframe>
+  
+  <!-- 
+https://gossamer-raccoon-1582.dataplicity.io/cams/picture/3/frame/
+  -->
+  <iframe src="https://gossamer-raccoon-1582.dataplicity.io/cams/picture/3/frame/" frameborder="0"></iframe>
   </main>
 
   <!--input type="button" id="enviar_audio_a_servidor" value="Enviar Audio">-->
@@ -2655,7 +2662,7 @@
 body .container {
   position: absolute;
   left: 50%;
-  top: 75%;
+  top: 200%;
   width: 170px;
   height: 170px;
   margin: -85px -85px;
@@ -2856,7 +2863,7 @@ function onDeviceReady() {
 
 
 
-  
+  /*
 for (var index = 0; index < 10; index++) {
   fetch('https://nubilous-dingo-5717.dataplicity.io/vlc_php.php', {mode: 'no-cors'}).then(function(response){
    // alert(response.text());
@@ -2867,7 +2874,7 @@ for (var index = 0; index < 10; index++) {
   
 }
 
-
+*/
 
 
 
@@ -2893,7 +2900,7 @@ function subir(imageURI) {
  
             var ft = new FileTransfer();
             //alert(ft);
-            ft.upload("storage/emulated/0/myrecording.wav", encodeURI("https://nubilous-dingo-5717.dataplicity.io/audio_reproducir.php"), win, fail, options, true);
+            ft.upload("storage/emulated/0/myrecording.wav", encodeURI("https://gossamer-raccoon-1582.dataplicity.io/audio_reproducir.php"), win, fail, options, true);
        
  
         function win(r) {
