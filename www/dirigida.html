@@ -348,7 +348,7 @@ ACA SE PONE , DE FORMA ESTANDAR, AL CENTRO
 
      document.getElementById("izquierda").addEventListener("click", function encendiendoAlarma() {
     //alert("asdfadfencenderr?!?!?")
-        fetch('https://gossamer-raccoon-1582.dataplicity.io/izquierda_camara.php').then(function(response) {
+        fetch('https://gossamer-raccoon-1582.dataplicity.io/izquierda_camara.php', {mode: 'no-cors'}).then(function(response) {
       return response.text();
     }).then(function(myBlob) {
       console.log(miBlob); 
@@ -359,7 +359,7 @@ ACA SE PONE , DE FORMA ESTANDAR, AL CENTRO
 
      document.getElementById("centro").addEventListener("click", function encendiendoAlarma() {
     //alert("asdfadfencenderr?!?!?")
-        fetch('https://gossamer-raccoon-1582.dataplicity.io/centro_camara.php').then(function(response) {
+        fetch('https://gossamer-raccoon-1582.dataplicity.io/centro_camara.php', {mode: 'no-cors'}).then(function(response) {
       return response.text();
     }).then(function(myBlob) {
       console.log(miBlob); 
@@ -369,7 +369,7 @@ ACA SE PONE , DE FORMA ESTANDAR, AL CENTRO
 
      document.getElementById("derecha").addEventListener("click", function encendiendoAlarma() {
     //alert("asdfadfencenderr?!?!?")
-        fetch('https://gossamer-raccoon-1582.dataplicity.io/derecha_camara.php').then(function(response) {
+        fetch('https://gossamer-raccoon-1582.dataplicity.io/derecha_camara.php', {mode: 'no-cors'}).then(function(response) {
       return response.text();
     }).then(function(myBlob) {
       console.log(miBlob); 
