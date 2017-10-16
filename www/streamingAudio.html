@@ -303,7 +303,7 @@
  <!--<iframe src="https://nubilous-dingo-5717.dataplicity.io/audio/" frameborder="0"></iframe>-->
 
       <audio controls id="audio">
-       <source src="https://nubilous-dingo-5717.dataplicity.io/audio/" type="audio/mpeg">
+       <source src="https://coseismal-hamster-7732.dataplicity.io/audio/" type="audio/mpeg">
        <!-- <source src="horse.mp3" type="audio/mpeg">-->
       Your browser does not support the audio element.
       </audio>
@@ -317,8 +317,8 @@
 
 
 function comenzar_streaming_audio(){
-  //alert("asdf")
-  fetch('https://nubilous-dingo-5717.dataplicity.io/vlc_php.php', {mode: 'no-cors'}).then(function(response){
+  alert("asdf")
+  fetch('https://coseismal-hamster-7732.dataplicity.io/vlc_php.php', {mode: 'no-cors'}).then(function(response){
    // alert(response.text());
     return response.text()
   }).then(function(r){
@@ -333,7 +333,7 @@ document.addEventListener("backbutton", onBackKeyDown, false);
 
 function onBackKeyDown() {
 //tgerminar streaming audio
-fetch('https://nubilous-dingo-5717.dataplicity.io/finalizar_audio_streaming.php').then(function(response) {
+fetch('https://coseismal-hamster-7732.dataplicity.io/finalizar_audio_streaming.php').then(function(response) {
   return response.text();
 }).then(function(myBlob) {
   console.log(miBlob)
