@@ -303,7 +303,7 @@
  <!--<iframe src="https://nubilous-dingo-5717.dataplicity.io/audio/" frameborder="0"></iframe>-->
 
       <audio controls id="audio">
-       <source src="https://coseismal-hamster-7732.dataplicity.io/audio/" type="audio/mpeg">
+       <source src="https://coseismal-hamster-7732.dataplicity.io/audio/">
        <!-- <source src="horse.mp3" type="audio/mpeg">-->
       Your browser does not support the audio element.
       </audio>
@@ -311,6 +311,16 @@
       <div>
         <button class="btn btn-danger" onclick="comenzar_streaming_audio()">Comenzar Streaming</button>
       </div>
+
+
+
+      <button id="encender" class="btn btn-danger" onClick="encendiendoAlarma()">Enciende tu alarma</button>
+      <br>
+      <br>
+      <button id="apagar" class="btn btn-success" onClick="apagandoAlarma()">Apaga tu alarma </button>
+
+
+
   </main>
 
   <script type="text/javascript">
@@ -349,6 +359,39 @@ fetch('https://coseismal-hamster-7732.dataplicity.io/finalizar_audio_streaming.p
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
      console.log(navigator.vibrate);
+
+//alert("asdfadsfasfdONDEVICEREADYUUYY")
+var encender= document.getElementById("encender");
+ var apagar= document.getElementById("apagar");
+
+ encender.addEventListener("click", function encendiendoAlarma() {
+//alert("asdfadfencenderr?!?!?")
+
+
+
+
+    fetch('https://coseismal-hamster-7732.dataplicity.io/alarmaon.php').then(function(response) {
+  return response.text();
+}).then(function(myBlob) {
+  console.log(miBlob);
+  navigator.notification.vibrate(2500);
+});
+
+ }, false);
+
+ apagar.addEventListener("click", function  apagandoAlarma(){
+//alert("apagar?!!?")
+    fetch('https://coseismal-hamster-7732.dataplicity.io/alarmaoff.php').then(function(response) {
+  return response.text();
+}).then(function(myBlob) {
+  console.log(miBlob)
+});
+
+ }, false)
+
+
+
+
 }
 
 
