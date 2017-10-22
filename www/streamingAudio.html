@@ -301,7 +301,7 @@
   <main id="main">
       <h3>Audio</h3>
 
-      <iframe src="http://christophersierrame.ddns.netcams/picture/2/frame/" frameborder="0"></iframe>
+      <iframe src="http://christophersierrame.ddns.net/cams/picture/2/frame/" frameborder="0"></iframe>
  <!--<iframe src="https://nubilous-dingo-5717.dataplicity.io/audio/" frameborder="0"></iframe>-->
 
       <audio controls id="audio">
@@ -330,7 +330,7 @@
 
 function comenzar_streaming_audio(){
   alert("asdf")
-  fetch('https://coseismal-hamster-7732.dataplicity.io/vlc_php.php', {mode: 'no-cors'}).then(function(response){
+  fetch('http://christophersierrame.ddns.net/vlc_php.php', {mode: 'no-cors'}).then(function(response){
    // alert(response.text());
     return response.text()
   }).then(function(r){
@@ -345,7 +345,7 @@ document.addEventListener("backbutton", onBackKeyDown, false);
 
 function onBackKeyDown() {
 //tgerminar streaming audio
-fetch('https://coseismal-hamster-7732.dataplicity.io/finalizar_audio_streaming.php').then(function(response) {
+fetch('http://christophersierrame.ddns.net/finalizar_audio_streaming.php').then(function(response) {
   return response.text();
 }).then(function(myBlob) {
   console.log(miBlob)
@@ -370,7 +370,7 @@ function onDeviceReady() {
 
 
 
-    fetch('https://coseismal-hamster-7732.dataplicity.io/alarmaon.php').then(function(response) {
+    fetch('http://christophersierrame.ddns.net/alarmaon.php').then(function(response) {
   return response.text();
 }).then(function(myBlob) {
   console.log(miBlob);
@@ -381,7 +381,7 @@ function onDeviceReady() {
 
  apagar.addEventListener("click", function  apagandoAlarma(){
 //alert("apagar?!!?")
-    fetch('https://coseismal-hamster-7732.dataplicity.io/alarmaoff.php').then(function(response) {
+    fetch('http://christophersierrame.ddns.net/alarmaoff.php').then(function(response) {
   return response.text();
 }).then(function(myBlob) {
   console.log(miBlob)
