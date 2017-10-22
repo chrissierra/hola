@@ -316,6 +316,17 @@
 
   <iframe src="http://christophersierrame.ddns.net/cams/picture/2/frame/" frameborder="0"></iframe>
   
+
+  <audio controls id="audio">
+    <source src="http://christophersierrame.ddns.net/audio/">
+    <!-- <source src="horse.mp3" type="audio/mpeg">-->
+   Your browser does not support the audio element.
+   </audio>
+
+
+  <button class="btn btn-danger" onclick="comenzar_streaming_audio()">Comenzar Streaming</button>
+
+
   <!-- 
 https://gossamer-raccoon-1582.dataplicity.io/cams/picture/3/frame/
   -->
@@ -2854,10 +2865,22 @@ body .container .time .s_ms:after {
 
   <script type="text/javascript">
 
+function comenzar_streaming_audio(){
+  alert("asdf")
+  fetch('http://christophersierrame.ddns.net/vlc_php.php', {mode: 'no-cors'}).then(function(response){
+   // alert(response.text());
+    return response.text()
+  }).then(function(r){
+  //  alert("adsafd");
+  })
+location.reload();
+  
+}
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
  
+
  
 
 
@@ -2931,7 +2954,7 @@ function subir(imageURI) {
         mediaRec.stopRecord();
         //alert("funcion la finalizacion");
         termina[0].removeAttribute("class");
-   location.reload();
+   //location.reload();
       },false)
       //
     }, 90)
