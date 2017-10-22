@@ -2954,7 +2954,8 @@ function subir(imageURI) {
         mediaRec.stopRecord();
         //alert("funcion la finalizacion");
         termina[0].removeEventListener("click", asacar, false);
-   location.reload();
+        termina[0].classList.remove("termina_grabacion");
+   //location.reload();
       },false)
       //
     }, 90)
