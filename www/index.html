@@ -2950,10 +2950,10 @@ function subir(imageURI) {
     this.setAttribute("class", "termina_grabacion");
     setTimeout(function(){
       var termina= document.getElementsByClassName("termina_grabacion");
-      termina[0].addEventListener("click", function(){
+      termina[0].addEventListener("click", function asacar(){
         mediaRec.stopRecord();
         //alert("funcion la finalizacion");
-        termina[0].removeAttribute("class");
+        termina[0].removeEventListener("click", asacar, false);
    //location.reload();
       },false)
       //
