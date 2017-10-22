@@ -308,87 +308,38 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-  //navigator.vibrate(6000); console.log(navigator.vibrate); console.log(Media);
+ 
+onUploadFile();
 
-var src = "myrecording.wav";
-
-var mediaRec = new Media(src,
-        // success callback
-        function() {
-          alert("exito")
-            console.log("recordAudio():Audio Success");
-           
-          //  mediaRec.play();     
-        },
-
-
-        // error callback
-        function(err) {
-
-          alert(err.code);
-            console.log("recordAudio():Audio Error: "+ err.code);
-        });
-
-    // Record audio
-    mediaRec.startRecord();
-
-setTimeout(function() {
-        mediaRec.stopRecord();
-      //  mediaRec.play();
-
-
-var fs= mediaRec;
-
-
-
-      window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
+  function onUploadFile() {
+    window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
 
         console.log('file system open: ' + fs.name);
         var fileName = "myrecording.wav";
         var dirEntry = fs.root;
         dirEntry.getFile(fileName, { create: true, exclusive: false }, function (fileEntry) {
-audio_test= new Media(filename);
-audio_test.play();
+
             // Write something to the file before uploading it.
-          //  writeFile();
-            file_transfer(fileEntry);
-        });
+            upload(fileEntry);
 
-    });
+        }, function(){ alert("error al crear") });
 
-
-
-
-      
-    }, 5000);
-
+    }, function(){ alert("error al abrir") });
 }
 
 
-/*
-***************************************************************************************************
-***************************************************************************************************
-*/
-function file_transfer(archivo){
+function upload(fileEntry) {
+    // !! Assumes variable fileURL contains a valid URL to a text file on the device,
+    var fileURL = fileEntry.toURL();
 
-  fileURL=archivo.toURL();
-
-  
-
-        
-    var win = function (r) {
-      alert(r.bytesSent)
-      alert("https://nubilous-dingo-5717.dataplicity.io/audio_reproducir.php")
+    var success = function (r) {
+        console.log("Successful upload...");
         console.log("Code = " + r.responseCode);
-        console.log("Response = " + r.response);
-        console.log("Sent = " + r.bytesSent);
-        console.log("https://nubilous-dingo-5717.dataplicity.io/audio_reproducir.php");
+        // displayFileData(fileEntry.fullPath + " (content uploaded to server)");
     }
 
     var fail = function (error) {
         alert("An error has occurred: Code = " + error.code);
-        console.log("upload error source " + error.source);
-        console.log("upload error target " + error.target);
     }
 
     var options = new FileUploadOptions();
@@ -396,14 +347,20 @@ function file_transfer(archivo){
     options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
     options.mimeType = "audio/wav";
 
+    var params = {};
+    params.value1 = "test";
+    params.value2 = "param";
+
+    options.params = params;
+
     var ft = new FileTransfer();
-    ft.upload(fileURL, encodeURI("https://nubilous-dingo-5717.dataplicity.io/audio_reproducir.php"), win, fail, options, true);
+    // SERVER must be a URL that can handle the request, like
+    // http://some.server.com/upload.php
+    ft.upload(fileURL, encodeURI("https://nubilous-dingo-5717.dataplicity.io/audio_reproducir.php"), success, fail, options, true);
+};
 
-  }
 
-
-
-
+}
 /*
 ***************************************************************************************************
 ***************************************************************************************************

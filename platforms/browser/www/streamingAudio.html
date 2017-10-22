@@ -5,10 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
   <title>Wombat Coffee Roasters</title>
-  <meta http-equiv="Content-Security-Policy" 
-  content="default-src *; 
-           style-src * 'self' 'unsafe-inline' 'unsafe-eval'; 
-           script-src * 'self' 'unsafe-inline' 'unsafe-eval';">
+  
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
   <style>
     :root {
       box-sizing: border-box;
@@ -170,7 +174,7 @@
       top: 0.2em;
       left: 0.2em;
       display: block;
-      content: "/2261";
+      content: "\2261";
       text-indent: 0;
     }
 
@@ -285,129 +289,112 @@
     </button>
     <div class="menu-dropdown">
       <ul class="nav-menu">
-        <li><a href="./enviaraudio.html">Audio</a></li>
-        <li><a href="/shop.html">Shop</a></li>
-        <li><a href="/menu.html">Menu</a></li>
-        <li><a href="/brew.html">Brew</a></li>
+        <li><a href="./index.html">Index</a></li>
+        <li><a href="./alarmas.html">Alarmas</a></li>
+        <li><a href="./streamingAudio.html">Audio</a></li>
+      <li><a href="./rebooting.html">Reinicia tu equipo</a></li>
       </ul>
     </div>
   </nav>
 
 
   <main id="main">
-      <h3>Living</h3>
-  <iframe src="https://nubilous-dingo-5717.dataplicity.io/cams/picture/1/frame/
-" frameborder="0"></iframe>
+      <h3>Audio</h3>
+
+      <iframe src="http://christophersierra.ddns.net/cams/picture/2/frame/" frameborder="0"></iframe>
+ <!--<iframe src="https://nubilous-dingo-5717.dataplicity.io/audio/" frameborder="0"></iframe>-->
+
+      <audio controls id="audio">
+       <source src="https://coseismal-hamster-7732.dataplicity.io/audio/">
+       <!-- <source src="horse.mp3" type="audio/mpeg">-->
+      Your browser does not support the audio element.
+      </audio>
+
+      <div>
+        <button class="btn btn-danger" onclick="comenzar_streaming_audio()">Comenzar Streaming</button>
+      </div>
+
+
+
+      <button id="encender" class="btn btn-danger" onClick="encendiendoAlarma()">Enciende tu alarma</button>
+      <br>
+      <br>
+      <button id="apagar" class="btn btn-success" onClick="apagandoAlarma()">Apaga tu alarma </button>
+
+
+
   </main>
-
-  <input type="button" id="enviar_audio_a_servidor" value="Enviar Audio">
-
 
   <script type="text/javascript">
 
-document.addEventListener("deviceready", onDeviceReady, false);
 
-function onDeviceReady() {
-  //navigator.vibrate(6000); console.log(navigator.vibrate); console.log(Media);
-
-var src = "myrecording.wav";
-
-var mediaRec = new Media(src,
-        // success callback
-        function() {
-          alert("exito")
-            console.log("recordAudio():Audio Success");
-           
-          //  mediaRec.play();     
-        },
-
-
-        // error callback
-        function(err) {
-
-          alert(err.code);
-            console.log("recordAudio():Audio Error: "+ err.code);
-        });
-
-    // Record audio
-    mediaRec.startRecord();
-
-setTimeout(function() {
-        mediaRec.stopRecord();
-      //  mediaRec.play();
-
-
-var fs= mediaRec;
-
-
-
-      window.requestFileSystem(window.TEMPORARY, 5 * 1024 * 1024, function (fs) {
-
-        console.log('file system open: ' + fs.name);
-        var fileName = "myrecording.wav";
-        var dirEntry = fs.root;
-        dirEntry.getFile(fileName, { create: true, exclusive: false }, function (fileEntry) {
-audio_test= new Media(filename);
-audio_test.play();
-            // Write something to the file before uploading it.
-          //  writeFile();
-            file_transfer(fileEntry);
-        });
-
-    });
-
-
-
-
-      
-    }, 5000);
-
+function comenzar_streaming_audio(){
+  alert("asdf")
+  fetch('https://coseismal-hamster-7732.dataplicity.io/vlc_php.php', {mode: 'no-cors'}).then(function(response){
+   // alert(response.text());
+    return response.text()
+  }).then(function(r){
+  //  alert("adsafd");
+  })
+location.reload();
+  
 }
 
 
-/*
-***************************************************************************************************
-***************************************************************************************************
-*/
-function file_transfer(archivo){
+document.addEventListener("backbutton", onBackKeyDown, false);
 
-  fileURL=archivo.toURL();
-
+function onBackKeyDown() {
+//tgerminar streaming audio
+fetch('https://coseismal-hamster-7732.dataplicity.io/finalizar_audio_streaming.php').then(function(response) {
+  return response.text();
+}).then(function(myBlob) {
+  console.log(miBlob)
+});
+   
   
 
-        
-    var win = function (r) {
-      alert(r.bytesSent)
-      alert("https://nubilous-dingo-5717.dataplicity.io/audio_reproducir.php")
-        console.log("Code = " + r.responseCode);
-        console.log("Response = " + r.response);
-        console.log("Sent = " + r.bytesSent);
-        console.log("https://nubilous-dingo-5717.dataplicity.io/audio_reproducir.php");
-    }
 
-    var fail = function (error) {
-        alert("An error has occurred: Code = " + error.code);
-        console.log("upload error source " + error.source);
-        console.log("upload error target " + error.target);
-    }
 
-    var options = new FileUploadOptions();
-    options.fileKey = "file";
-    options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
-    options.mimeType = "audio/wav";
+  // Handle the back button
+}
 
-    var ft = new FileTransfer();
-    ft.upload(fileURL, encodeURI("https://nubilous-dingo-5717.dataplicity.io/audio_reproducir.php"), win, fail, options, true);
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+   //alert("asdfadsfasfdONDEVICEREADYUUYY")
+ var encender= document.getElementById("encender");
+ var apagar= document.getElementById("apagar");
 
-  }
+ encender.addEventListener("click", function encendiendoAlarma() {
+//alert("asdfadfencenderr?!?!?")
 
 
 
 
-/*
-***************************************************************************************************
-***************************************************************************************************
-*/
+    fetch('https://coseismal-hamster-7732.dataplicity.io/alarmaon.php').then(function(response) {
+  return response.text();
+}).then(function(myBlob) {
+  console.log(miBlob);
+  navigator.notification.vibrate(2500);
+});
+
+ }, false);
+
+ apagar.addEventListener("click", function  apagandoAlarma(){
+//alert("apagar?!!?")
+    fetch('https://coseismal-hamster-7732.dataplicity.io/alarmaoff.php').then(function(response) {
+  return response.text();
+}).then(function(myBlob) {
+  console.log(miBlob)
+});
+
+ }, false)
+
+
+
+
+
+}
+
 
     (function () {
       var menuButton = document.getElementById('toggle-menu');
@@ -418,8 +405,7 @@ function file_transfer(archivo){
       });
     })();
   </script>
-        <script type="text/javascript" src="cordova.js"></script>
-   
-  
+
 </body>
+<script type="text/javascript" src="cordova.js"></script>
 </html>
