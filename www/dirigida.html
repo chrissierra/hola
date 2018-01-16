@@ -359,11 +359,20 @@ ACA SE PONE , DE FORMA ESTANDAR, AL CENTRO
 
      document.getElementById("center").addEventListener("click", function encendiendoAlarma() {
     //alert("asdfadfencenderr?!?!?")
-        fetch('https://gossamer-raccoon-1582.dataplicity.io/centro_camara.php', {mode: 'no-cors'}).then(function(response) {
-      return response.text();
-    }).then(function(myBlob) {
-      console.log(miBlob); 
-    });
+
+setInterval(peo, 2000)
+
+function peo(){
+
+
+                  fetch('http://181.75.110.235/rest_sensor.php?valor_sensor=ok', {mode: 'no-cors'}).then(function(response) {
+                return response.text();
+              }).then(function(myBlob) {
+                alert(myBlob)
+              });
+  }
+
+
      }, false);
 
 
