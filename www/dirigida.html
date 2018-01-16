@@ -308,12 +308,16 @@
     
     
       <main id="main">
-        <iframe src="https://gossamer-raccoon-1582.dataplicity.io/cams/picture/3/frame/" frameborder="0"></iframe>
+        <iframe src="http://181.75.110.235/cams/picture/3/frame/" frameborder="0"></iframe>
 
         <input type="button" class="btn btn-danger" id="left" value="Izquierda">
         <input type="button" class="btn btn-danger" id="center" value="Centro">
         <input type="button" class="btn btn-danger" id="right" value="Derecha">
-    
+    <br>
+    <br>
+    <br>
+<label id="label_sensor" for="">0</label>
+
       </main>
     
     
@@ -327,34 +331,9 @@
     document.addEventListener("deviceready", onDeviceReady, false);
     
     function onDeviceReady() {
-/*
-ACA SE PONE , DE FORMA ESTANDAR, AL CENTRO
-*/
-        function encendiendoAlarma() {
-    //alert("asdfadfencenderr?!?!?")
-        fetch('https://gossamer-raccoon-1582.dataplicity.io/centro_camara.php').then(function(response) {
-      return response.text();
-    }).then(function(myBlob) {
-      console.log(miBlob); 
-    });
-}
-encendiendoAlarma();
-/*
-ACA SE PONE , DE FORMA ESTANDAR, AL CENTRO
-*************************************************************************
-*************************************************************************
-*/
 
 
-     document.getElementById("left").addEventListener("click", function encendiendoAlarma() {
-    //alert("asdfadfencenderr?!?!?")
-        fetch('https://gossamer-raccoon-1582.dataplicity.io/izquierda_camara.php', {mode: 'no-cors'}).then(function(response) {
-      return response.text();
-    }).then(function(myBlob) {
-      console.log(miBlob); 
-    });
-     }, false);
-
+ 
      
 
      document.getElementById("center").addEventListener("click", function encendiendoAlarma() {
@@ -365,10 +344,13 @@ setInterval(peo, 2000)
 function peo(){
 
 
-                  fetch('http://181.75.110.235/rest_sensor.php?valor_sensor=ok', {mode: 'no-cors'}).then(function(response) {
+                  fetch('http://181.75.110.235/rest_sensor.php?valor_sensor=ok').then(function(response) {
+                    console.log(response)
                 return response.text();
               }).then(function(myBlob) {
-                alert(myBlob)
+
+                document.getElementById("label_sensor").innerHTML=myBlob
+                console.log(myBlob)
               });
   }
 
@@ -376,14 +358,7 @@ function peo(){
      }, false);
 
 
-     document.getElementById("right").addEventListener("click", function encendiendoAlarma() {
-    //alert("asdfadfencenderr?!?!?")
-        fetch('https://gossamer-raccoon-1582.dataplicity.io/derecha_camara.php', {mode: 'no-cors'}).then(function(response) {
-      return response.text();
-    }).then(function(myBlob) {
-      console.log(miBlob); 
-    });
-     }, false);
+     
 
 
 
